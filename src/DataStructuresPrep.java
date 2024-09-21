@@ -26,7 +26,11 @@ public class DataStructuresPrep {
      *         Ejemplo: subtractAlgorithm(5, 3) retorna 2.
      */
     public int subtractAlgorithm(int a, int b) {
-        throw new UnsupportedOperationException("Not yet implemented");
+        int count = 0;
+        while (a>(b+count)) {
+            count=count+1;
+        }
+        return count;
     }
 
     /**
@@ -38,7 +42,12 @@ public class DataStructuresPrep {
      *         Ejemplo: multiplyAlgorithm(5, 3) retorna 15.
      */
     public int multiplyAlgorithm(int a, int b) {
-        throw new UnsupportedOperationException("Not yet implemented");
+        int result = 0;
+        // Multiplicar sumando 'a', 'b' veces.
+        for (int i = 0; i < b; i++) {
+            result += a;
+        }
+        return result;
 
     }
 
@@ -51,8 +60,14 @@ public class DataStructuresPrep {
      *         Ejemplo: divideWAlgorithm(10, 2) retorna 5.
      */
     public int divideWAlgorithm(int dividend, int divisor) {
-        throw new UnsupportedOperationException("Not yet implemented");
-
+        int count = 0;
+        int residuo = dividend;
+        while (residuo>=divisor)
+        {
+            residuo -= divisor;
+            count++;
+        }
+        return count;
     }
 
     /**
@@ -64,7 +79,13 @@ public class DataStructuresPrep {
      *         Ejemplo: isPerfectNumber(28) retorna true.
      */
     public boolean isPerfectNumber(int number) {
-        throw new UnsupportedOperationException("Not yet implemented");
+        int sum =0;
+    for (int i = 1; i < number; i++){
+        if(number % i== 0){
+            sum = sum + i;
+        }
+    }
+    return sum == number;
     }
 
     /**
@@ -75,7 +96,11 @@ public class DataStructuresPrep {
      *         Ejemplo: getFactorial(5) retorna 120.
      */
     public int getFactorial(int number) {
-        throw new UnsupportedOperationException("Not yet implemented");
+        int fact = 1;
+        for (int i = 2; i <= number; i++) {
+            fact *= i;
+        }
+        return fact;
     }
 
     /**
@@ -86,7 +111,13 @@ public class DataStructuresPrep {
      *         Ejemplo: findMaximum(new int[]{1, 5, 3, 6, 8, 2}) retorna 8.
      */
     public int findMaximum(int[] numbers) {
-        throw new UnsupportedOperationException("Not yet implemented");
+        int max = numbers[0]; 
+    for (int i = 1; i < numbers.length; i++) {
+        if (numbers[i] > max) {
+            max = numbers[i]; 
+        }
+    }
+    return max;
     }
 
     /**
@@ -98,7 +129,11 @@ public class DataStructuresPrep {
      *         Ejemplo: powerAlgorithm(2, 3) retorna 8.
      */
     public int powerAlgorithm(int base, int exponent) {
-        throw new UnsupportedOperationException("Not yet implemented");
+        int result = 1;
+        for (int i = 0; i < exponent; i++) {
+            result *= base; 
+        }
+        return result;
     }
 
     /**
@@ -109,7 +144,19 @@ public class DataStructuresPrep {
      *         Ejemplo: isPrime(5) retorna true.
      */
     public boolean isPrime(int number) {
-        throw new UnsupportedOperationException("Not yet implemented");
+        if (number < 2) {
+            return false;
+        }
+        // Recorre desde 2 hasta el número - 1
+        for (int i = 2; i < number; i++) {
+            // Si el número es divisible por algún número en ese rango, no es primo
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        // Si no encontró ningún divisor, es primo
+        return true;
+        
     }
 
     /**
@@ -120,6 +167,13 @@ public class DataStructuresPrep {
      *         Ejemplo: countDigits(12345) retorna 5.
      */
     public int countDigits(int number) {
-        throw new UnsupportedOperationException("Not yet implemented");
+        if (number == 0) return 1;  // Caso especial para el número 0
+        int count = 0;
+        number = Math.abs(number);
+        while (number > 0) {
+            count++;
+            number /= 10;
+        }
+        return count;
     }
 }
